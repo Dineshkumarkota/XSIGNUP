@@ -5,7 +5,7 @@ body {
   background-color: #555879;
 }
 
-.container {
+.main {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -126,7 +126,7 @@ input.error {
   color: white;
 }
 @media (max-width: 678px) {
-  .container {
+  .main {
     display: flex;
     flex-direction: column-reverse;
     margin: 0;
