@@ -1,4 +1,3 @@
-
 const emailInput = document.getElementById("email");
 const userEmailSpan = document.getElementById("userEmail");
 const subscribeBtn = document.getElementById("subscribeBtn");
@@ -18,6 +17,7 @@ subscribeBtn.addEventListener("click", () => {
     emailInput.classList.add("error");
     return; // Prevent submit
   }
+  window.location.href = "success.html";
 
   emailError.style.display = "none";
   emailInput.classList.remove("error");
@@ -34,4 +34,6 @@ dismissBtn.addEventListener("click", () => {
   imageSection.style.display = "flex"; // restore flex layout
   successMessage.style.display = "none";
   document.querySelector(".container").style.display = "flex";
+
+  window.location.href = "index.html";
 });
