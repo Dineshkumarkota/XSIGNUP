@@ -1,25 +1,32 @@
 const emailInput = document.getElementById("email");
-const emailError = document.getElementById("emailError");
+const errorText = document.getElementById("error-text");
 const subscribeBtn = document.getElementById("subscribeBtn");
 
-subscribeBtn.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent default behavior if inside a form
+function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
+// Live check while typing
+emailInput.addEventListener("input", () => {
   const email = emailInput.value.trim();
-  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  if (!isValidEmail) {
-    emailError.style.display = "block";
+  if (!validateEmail(email)) {
     emailInput.classList.add("error");
-    return;
+    errorText.style.display = "block";
+  } else {
+    emailInput.classList.remove("error");
+    errorText.style.display = "none";
   }
+});
 
-  emailError.style.display = "none";
-  emailInput.classList.remove("error");
-
-  // Save email to localStorage
-  localStorage.setItem("subscribedEmail", email);
-
-  // Redirect to success page
-  window.location.href = "success.html";
+// Final check when submitting
+subscribeBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const email = emailInput.value.trim();
+  if (validateEmail(email)) {
+    // Success action
+    window.location.href = "success.html";
+  } else {
+    emailInput.classList.add("error");
+    errorText.style.display = "block";
+  }
 });
