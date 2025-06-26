@@ -1,33 +1,22 @@
 const emailInput = document.getElementById("email");
-const errorText = document.getElementById("error-text");
-const subscribeBtn = document.getElementById("subscribeBtn");
+const emailError = document.getElementById("emailError");
+const form = document.getElementById("subscribeForm");
 
-function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-// Live check while typing
-emailInput.addEventListener("input", () => {
-  const email = emailInput.value.trim();
-  if (!validateEmail(email)) {
-    emailInput.classList.add("error");
-    errorText.style.display = "block";
-    errorText.style.color="tomato";
-  } else {
-    emailInput.classList.remove("error");
-    errorText.style.display = "none";
-  }
-});
-
-// Final check when submitting
-subscribeBtn.addEventListener("click", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
+
   const email = emailInput.value.trim();
-  if (validateEmail(email)) {
-    // Success action
-    window.location.href = "success.html";
-  } else {
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  if (!isValidEmail) {
+    emailError.style.display = "block";
     emailInput.classList.add("error");
-    errorText.style.display = "block";
+    return;
   }
+
+  emailError.style.display = "none";
+  emailInput.classList.remove("error");
+
+  localStorage.setItem("subscribedEmail", email);
+  window.location.href = "success.html";
 });
