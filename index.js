@@ -2,7 +2,7 @@ const emailInput = document.getElementById("email");
 const emailError = document.getElementById("emailError");
 const subscribeBtn = document.getElementById("subscribeBtn");
 
-subscribeBtn.addEventListener("submit", (e) => {
+subscribeBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   const email = emailInput.value.trim();
