@@ -12,6 +12,7 @@ emailInput.addEventListener("input", () => {
   if (!validateEmail(email)) {
     emailInput.classList.add("error");
     errorText.style.display = "block";
+    errorText.style.color="tomato";
   } else {
     emailInput.classList.remove("error");
     errorText.style.display = "none";
