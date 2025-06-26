@@ -122,10 +122,11 @@ button {
 
   display: block;
 }
-input.error {
-  border: 2px solid rgb(255, 99, 71);
-  color: tomato;
+input[type="email"].error {
+  border: 2px solid tomato;
+  color: tomato !important;
 }
+
 @media (max-width: 678px) {
   .main {
     display: flex;
