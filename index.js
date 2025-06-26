@@ -1,8 +1,8 @@
 const emailInput = document.getElementById("email");
 const emailError = document.getElementById("emailError");
-const form = document.getElementById("subscribeForm");
+const subscribeBtn = document.getElementById("subscribeBtn");
 
-form.addEventListener("submit", (e) => {
+subscribeBtn.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const email = emailInput.value.trim();
