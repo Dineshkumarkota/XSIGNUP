@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Left Section: Form -->
+      <div class="form-section" id="formSection">
+        <h1>Stay updated!</h1>
+        <p>
+          Join 60,000+ product managers receiving monthly <br />
+          updates on:
+        </p>
+        <ul>
+          <li>
+            <img src="./assets/images/icon-list.svg" alt="" /> Product discovery
+            and building what matters
+          </li>
+          <li>
+            <img src="./assets/images/icon-list.svg" alt="" /> Measuring to
+            ensure updates are a success
+          </li>
+          <li>
+            <img src="./assets/images/icon-list.svg" alt="" /> And much more!
+          </li>
+        </ul>
+
+        <div class="label">
+          <label for="email">Email Address</label>
+          <span id="emailError" class="error-text" style="display: none"
+            >Valid email required</span
+          >
+          <input
+            type="email"
+            id="email"
+            placeholder="email@company.com"
+            required
+          />
+          <button id="subscribeBtn">Subscribe to monthly newsletter</button>
+        </div>
+      </div>
+
+      <!-- Right Section: Image -->
+      <div class="image-section" id="imageSection">
+        <img
+          src="./assets/images/illustration-sign-up-desktop.svg"
+          alt="Illustration"
+        />
+      </div>
+    </div>
+
+    <div class="attribution" id="attribution">
+      Challenge By <a href="https://crio.do" target="_blank">Crio.DO</a>. Coded
+      by
+      <a href="https://github.com/Dineshkumarkota/" target="_blank"
+        >Dinesh Kumar</a
+      >
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage" style="display: none">
+      <div class="icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          fill="green"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M9 16.17l-3.88-3.88a1 1 0 00-1.41 1.41l4.59 4.59a1 1 0 001.41 0l10-10a1 1 0 00-1.41-1.41L9 16.17z"
+          />
+        </svg>
+      </div>
+      <h2>
+        Thanks for <br />
+        subscribing!
+      </h2>
+      <p>
+        A confirmation email has been sent to <br />
+        your <span id="userEmail"></span>. Please open it <br />and click the
+        button inside to confirm your <br />
+        subscription.
+      </p>
+      <button id="dismissBtn" style="width: 100%">Dismiss message</button>
+    </div>
+
+    <script>
+      const emailInput = document.getElementById("email");
+      const userEmailSpan = document.getElementById("userEmail");
+      const subscribeBtn = document.getElementById("subscribeBtn");
+      const successMessage = document.getElementById("successMessage");
+      const formSection = document.getElementById("formSection");
+      const imageSection = document.getElementById("imageSection");
+      const dismissBtn = document.getElementById("dismissBtn");
+      const atrritbution = document.getElementById("attribution");
+      const emailError = document.getElementById("emailError");
+
+      subscribeBtn.addEventListener("click", () => {
+        const email = emailInput.value.trim();
+        const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+        if (!isValidEmail) {
+          emailError.style.display = "block";
+          emailInput.classList.add("error");
+          return; // Prevent submit
+        }
+        emailError.style.display = "none";
+        emailInput.classList.remove("error");
+        formSection.style.display = "none";
+        imageSection.style.display = "none";
+        successMessage.style.display = "block";
+        document.querySelector(".container").style.display = "none";
+        atrritbution.style.display = "none";
+        userEmailSpan.textContent = email;
+      });
+
+      dismissBtn.addEventListener("click", () => {
+        formSection.style.display = "block";
+        imageSection.style.display = "flex"; // restore flex layout
+        successMessage.style.display = "none";
+        document.querySelector(".container").style.display = "flex";
+      });
+    </script>
+  </body>
+</html>
