@@ -123,7 +123,7 @@ button {
   display: block;
 }
 input.error {
-  border: 2px solid red;
+  border: 2px solid rgb(255, 99, 71);
   background-color: #ba8d72;
   color: white;
 }
