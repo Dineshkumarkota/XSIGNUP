@@ -123,10 +123,11 @@ button {
   display: block;
 }
 input[type="email"].error {
-  border: 2px solid tomato;
+  border: 2px solid tomato !important;
   color: tomato !important;
+  background-color: #fff !important;
+  -webkit-text-fill-color: tomato !important; /* for Safari */
 }
-
 @media (max-width: 678px) {
   .main {
     display: flex;
