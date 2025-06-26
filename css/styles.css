@@ -125,7 +125,7 @@ button {
 input[type="email"].error {
   border: 2px solid rgba(255, 99, 71) !important;
   color: rgba(255, 99, 71) !important;
-  background-color: rgba(255, 99, 71) !important;
+  background-color: rgba(255, 99, 71, 0.6) !important;
   -webkit-text-fill-color: rgba(255, 99, 71) !important; /* for Safari */
 }
 @media (max-width: 678px) {
