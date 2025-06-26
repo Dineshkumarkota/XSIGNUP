@@ -18,17 +18,17 @@ body {
   line-height: 30px;
 }
 
-.form-section {
+.sign-up-form {
   padding: 40px;
   max-width: 500px;
 }
 
-.form-section h1 {
+.sign-up-form h1 {
   font-size: 52px;
   margin-bottom: 50px;
 }
 
-.form-section ul {
+.sign-up-form ul {
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 20px;
