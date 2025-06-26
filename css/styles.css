@@ -116,7 +116,7 @@ button {
   transform: scale(1.001);
 }
 .error-text {
-  color: red;
+  color: rgb(255, 99, 71);
   font-size: 14px;
   margin-top: 4px;
 
