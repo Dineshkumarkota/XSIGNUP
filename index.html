@@ -32,9 +32,10 @@
 
         <div class="label">
           <label for="email">Email Address</label>
-          <span id="emailError" class="error-text" style="display: none"
-            >Valid email required</span
+          <em id="emailError" class="error-text" style="display: none"
+            >Valid email required</em
           >
+
           <input
             type="email"
             id="email"
@@ -64,33 +65,7 @@
       >
     </div>
 
-    <!-- Success Message -->
-    <div class="success-message" id="successMessage" style="display: none">
-      <div class="icon">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
-          fill="green"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M9 16.17l-3.88-3.88a1 1 0 00-1.41 1.41l4.59 4.59a1 1 0 001.41 0l10-10a1 1 0 00-1.41-1.41L9 16.17z"
-          />
-        </svg>
-      </div>
-      <h2>
-        Thanks for <br />
-        subscribing!
-      </h2>
-      <p>
-        A confirmation email has been sent to <br />
-        your <span id="userEmail"></span>. Please open it <br />and click the
-        button inside to confirm your <br />
-        subscription.
-      </p>
-      <button id="dismissBtn" style="width: 100%">Dismiss message</button>
-    </div>
+    <
 
     <script>
       const emailInput = document.getElementById("email");
@@ -112,6 +87,8 @@
           emailInput.classList.add("error");
           return; // Prevent submit
         }
+
+        window.location.href = "success.html";
         emailError.style.display = "none";
         emailInput.classList.remove("error");
         formSection.style.display = "none";
