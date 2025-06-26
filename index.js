@@ -1,39 +1,25 @@
 const emailInput = document.getElementById("email");
-const userEmailSpan = document.getElementById("userEmail");
-const subscribeBtn = document.getElementById("subscribeBtn");
-const successMessage = document.getElementById("successMessage");
-const formSection = document.getElementById("formSection");
-const imageSection = document.getElementById("imageSection");
-const dismissBtn = document.getElementById("dismissBtn");
-const atrritbution = document.getElementById("attribution");
 const emailError = document.getElementById("emailError");
+const subscribeBtn = document.getElementById("subscribeBtn");
 
-subscribeBtn.addEventListener("click", () => {
+subscribeBtn.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent default behavior if inside a form
+
   const email = emailInput.value.trim();
   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   if (!isValidEmail) {
     emailError.style.display = "block";
     emailInput.classList.add("error");
-    return; // Prevent submit
+    return;
   }
-  window.location.href = "success.html";
 
   emailError.style.display = "none";
   emailInput.classList.remove("error");
-  formSection.style.display = "none";
-  imageSection.style.display = "none";
-  successMessage.style.display = "block";
-  document.querySelector(".main").style.display = "none";
-  atrritbution.style.display = "none";
-  userEmailSpan.textContent = email;
-});
 
-dismissBtn.addEventListener("click", () => {
-  formSection.style.display = "block";
-  imageSection.style.display = "flex"; // restore flex layout
-  successMessage.style.display = "none";
-  document.querySelector(".container").style.display = "flex";
+  // Save email to localStorage
+  localStorage.setItem("subscribedEmail", email);
 
-  window.location.href = "index.html";
+  // Redirect to success page
+  window.location.href = "success.html";
 });
